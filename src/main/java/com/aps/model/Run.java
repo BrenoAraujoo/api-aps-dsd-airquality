@@ -1,5 +1,6 @@
 package com.aps.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "tb_run")
 public class Run {
 
     @Id
@@ -19,7 +21,8 @@ public class Run {
     private User user;
     private BigDecimal distance;
     private BigDecimal co2;
-    @CreationTimestamp
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "GMT")
     @Column(columnDefinition = "timestamp")
-    private LocalDateTime dateTime;
+    private LocalDateTime createdAt;
 }

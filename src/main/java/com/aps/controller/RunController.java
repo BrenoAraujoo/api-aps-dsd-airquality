@@ -1,5 +1,6 @@
 package com.aps.controller;
 
+import com.aps.EntityNotFoundException;
 import com.aps.model.Run;
 import com.aps.repository.RunRepository;
 import com.aps.service.RunService;
@@ -29,13 +30,17 @@ public class RunController {
         return runService.findOrFail(id);
     }
 
-    @PutMapping("/{id}")
+    @GetMapping("/find-by-name")
+    public List<Run> findByName(@RequestParam String name){
+        return runRepository.findByUserName(name);
+    }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Run save(@RequestBody Run run){
         return runService.save(run);
     }
 
+    @PutMapping("/{id}")
     public Run update(@RequestBody Run run, @PathVariable Long id){
         var actualRun = runService.findOrFail(id);
         BeanUtils.copyProperties(run, actualRun,"id");
