@@ -1,15 +1,31 @@
-spring:
+#spring:
+#
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/aps-dsd-air-quality?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true
+#    username: ${username}
+#    password: ${password}
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    hibernate:
+#      dialect: org.hibernate.dialect.PostgreSQLDialect
+#      ddl-auto: update
+#    show-sql: false
+#    properties:
+#      hibernate:
+#        format_sql: false
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/aps-dsd-air-quality?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: ${username}
-    password: ${password}
-    driver-class-name: org.postgresql.Driver
+
+spring:
   jpa:
     hibernate:
       ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aps-dsd-air-quality?useTimezone=true&serverTimezone=UTC
+    username: ${username}
+    password: ${password}
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     properties:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
       hibernate:
-        format_sql: false
+      format_sql: true
