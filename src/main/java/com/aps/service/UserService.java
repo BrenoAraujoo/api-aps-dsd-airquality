@@ -1,8 +1,8 @@
 package com.aps.service;
 
 
-import com.aps.EntityInUseException;
-import com.aps.EntityNotFoundException;
+import com.aps.exceptions.EntityInUseException;
+import com.aps.exceptions.EntityNotFoundException;
 import com.aps.model.User;
 import com.aps.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

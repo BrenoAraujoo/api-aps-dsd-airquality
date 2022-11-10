@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import javax.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
@@ -24,5 +26,7 @@ public class Run {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "GMT")
     @Column(columnDefinition = "timestamp")
+    @CreationTimestamp
+    @Setter(AccessLevel.NONE)
     private LocalDateTime createdAt;
 }

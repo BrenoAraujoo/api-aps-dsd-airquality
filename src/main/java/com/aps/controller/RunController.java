@@ -1,6 +1,5 @@
 package com.aps.controller;
 
-import com.aps.EntityNotFoundException;
 import com.aps.model.Run;
 import com.aps.repository.RunRepository;
 import com.aps.service.RunService;
